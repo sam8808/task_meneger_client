@@ -5,7 +5,7 @@ import PublilcRoute from "./utils/PublilcRoute"
 
 function App() {
   return (
-    <BrowserRouter basename="/Todo-test-task-react">
+    <BrowserRouter>
       <Routes>
 
         {privateRoutes.map((route) => (
@@ -26,7 +26,7 @@ function App() {
 
         <Route 
           path="*"
-          element={<Navigate to='/Todo-test-task-react/main' />}
+          element={<Navigate to='/main' />}
         />
 
       </Routes>
