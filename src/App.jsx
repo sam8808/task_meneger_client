@@ -1,12 +1,36 @@
-import Content from "./components/Content"
-import Header from "./components/Header"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { privateRoutes, publicRoutes } from "./utils/navigation"
+import PrivateRoute from "./utils/PrivateRoute"
+import PublilcRoute from "./utils/PublilcRoute"
 
 function App() {
   return (
-    <div className="h-screen flex flex-col">
-      <Header />
-      <Content />
-    </div>
+    <BrowserRouter basename="/Todo-test-task-react">
+      <Routes>
+
+        {privateRoutes.map((route) => (
+          <Route 
+            path={route.path} 
+            element={<PrivateRoute element={<route.element />} />} 
+            key={route.path}
+          />
+        ))}
+
+        {publicRoutes.map((route) => (
+          <Route 
+            path={route.path} 
+            element={<PublilcRoute element={<route.element />} />} 
+            key={route.path}
+          />
+        ))}
+
+        <Route 
+          path="*"
+          element={<Navigate to='/Todo-test-task-react/main' />}
+        />
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
