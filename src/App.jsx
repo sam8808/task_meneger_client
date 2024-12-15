@@ -5,7 +5,7 @@ import PublilcRoute from "./utils/PublilcRoute"
 
 function App() {
   return (
-    <BrowserRouter basename="/Todo-test-task-react">
+    <BrowserRouter>
       <Routes>
 
         {privateRoutes.map((route) => (
