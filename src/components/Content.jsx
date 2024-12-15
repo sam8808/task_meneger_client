@@ -13,6 +13,7 @@ const Content = () => {
   
   const logIn = async () => {
     console.log("Logging in...")
+    setOpen(false)
     // async actions
   }
 
