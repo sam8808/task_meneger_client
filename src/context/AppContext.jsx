@@ -5,7 +5,7 @@ const AppContext = createContext()
 const AppContextProvider = ({children}) => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos"))?.todos || [])
-  const [token, setToken] = useState(localStorage.getItem("token") || null)
+  const [token, setToken] = useState(localStorage.getItem("token") || '')
 
   useEffect(() => {
     localStorage.setItem("theme", theme)

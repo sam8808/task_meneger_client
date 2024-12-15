@@ -4,7 +4,7 @@ import { useAppContext } from '../hooks/context'
 const PublilcRoute = ({element}) => {
   const {token} = useAppContext()
 
-  return !token ? element : <Navigate to='/Todo-test-task-react/main' />
+  return !token ? element : <Navigate to='/main' />
 }
 
 export default PublilcRoute
