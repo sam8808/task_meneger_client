@@ -1,10 +1,15 @@
-import { useAppContext } from '../hooks/context'
 import { Navigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
-const PrivateRoute = ({element}) => {
-  const {token} = useAppContext()
+const PrivateRoute = ({ children }) => {
+  const { isAuthenticated, isLoading } = useAuth()
 
-  return token ? element : <Navigate to='/register' />
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+
+  return !isAuthenticated ? children : <Navigate to="/login" />
 }
 
 export default PrivateRoute
